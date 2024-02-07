@@ -1,7 +1,7 @@
 #TC=N,SC=1
 
 #always print curr value in just 2 cases 1st when the curr is at the leftmost node and second when 
-# just before moving curr to its right in last case.
+# just before moving curr to its left in second last case.
 class Node:
 	def __init__(self, val, left=None, right=None):
 		self.val = val
@@ -25,9 +25,10 @@ def morris_traversal(root):
 
 			if pre.right is None: # no thread is created till now
 				pre.right = current #creating the thread
+				yield current.val
 				current = current.left  #now current is actually moved towards left 
 
 			else:
 				pre.right = None #since pre is pointing at the leaf node i.e. 6 in copy example
-				yield current.val
+				# yield current.val
 				current = current.right
