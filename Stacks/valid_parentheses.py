@@ -1,5 +1,3 @@
-#^^^^^COPY^^^^^^
-# https://leetcode.com/problems/valid-parentheses/
 # Input: s = "()[]{}"
 # Output: true
 #tc=n,sc=n

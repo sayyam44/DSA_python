@@ -1,9 +1,3 @@
-#learn the logic
-#using an extra empty stack 
-#tc=n2,sc=n
-#https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/
-from xml.etree import ElementInclude
-
 
 class Solution:
     def sorted(self, s):
@@ -21,7 +15,6 @@ class Solution:
 
 
 #recursive method 
-#https://www.geeksforgeeks.org/sort-a-stack-using-recursion/
 #tc=n2,sc=n
 
 def sortedInsert(element,s):

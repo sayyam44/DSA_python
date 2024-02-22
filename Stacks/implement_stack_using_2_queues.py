@@ -1,10 +1,7 @@
-#^^^^^^ COPY ^^^^^^^^^^^^^
-# https://www.geeksforgeeks.org/implement-stack-using-queue/
 # https://www.youtube.com/watch?v=jDZQKzEtbYQ&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=75
 
-# Program to implement a stack using
-# two queue
-from _collections import deque
+
+from collections import deque
 
 
 class Stack:
@@ -19,9 +16,6 @@ class Stack:
 
 		# Push x first in empty q2
 		self.q2.append(x)
-
-		# Push all the remaining
-		# elements in q1 to q2.
 		while (self.q1):
 			self.q2.append(self.q1.popleft())
 
@@ -59,4 +53,3 @@ if __name__ == '__main__':
 
 	print("current size: ", s.size())
 
-# This code is contributed by PranchalK

@@ -33,9 +33,7 @@ class Stack:
         if self.isEmpty():
             return float("-inf")
         return self.head.data #since root is pointing towards the top of the stack.
- 
- 
-# Driver code
+
 stack = Stack()
 stack.push(10)
 stack.push(20)

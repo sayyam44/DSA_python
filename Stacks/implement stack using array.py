@@ -26,8 +26,7 @@ def peek(stack):
     if (isEmpty(stack)):
         return str(-maxsize -1) # return minus infinite
     return stack[len(stack) - 1]
- 
-# Driver program to test above functions   
+
 stack = createStack()
 push(stack, str(10))
 push(stack, str(20))
