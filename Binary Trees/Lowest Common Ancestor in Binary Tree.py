@@ -8,6 +8,7 @@ class TreeNode:
 
 class Solution:
     def lowestCommonAncestor(self, root, p, q):
+        #If root'svalue is equal to p or q value then just retrun the root while iterating
         if root==None or root.val==p.val or root.val==q.val:
             return root
         
