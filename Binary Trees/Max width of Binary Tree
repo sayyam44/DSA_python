@@ -1,0 +1,37 @@
+#Width of binary tree - Number of the nodes in a level between any 2 nodes.
+#here we will assign an index to each node (here 0 based indexing is done)
+# 0 based indexing means if the root has index i then its leftnode will have index as 2i and its rightnode have index 2i+1
+  
+from collections import deque
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def widthOfBinaryTree(self, root):
+        if not root:
+            return 0
+        ans=0
+        q=deque([(root,0)])#node,index
+
+        while q:
+            curr_min=q[0][1] #the minimul for a level will always be the 1st element5 in the queue
+            size=len(q)
+            leftmost,rightmost=None,None #the max width in a level is rightmost-leftmost+1
+            for i in range(size):
+                curr_id=q[0][1]-curr_min #for any node in a level its current id is defined by its actual id - the minimum id on that level
+                temp,_=q.popleft()
+                if i==0: #we have reached the 1st element in that level that means this is the leftmost element of that level
+                    leftmost=curr_id
+                if i== size-1:
+                    rightmost=curr_id
+                #now appending left of temp into queue along with its id     
+                if temp.left:
+                    q.append((temp.left,curr_id*2+1))
+                #now right
+                if temp.right:
+                    q.append((temp.right,curr_id*2+2))
+                
+            ans=max(ans,rightmost-leftmost+1)
+        return ans 
