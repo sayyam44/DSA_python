@@ -63,21 +63,4 @@ class Solution:
                     high-=1
         return result
             
-        
-            
-        
-        #bruteforse 
-        # use 3 loops for finding i,j,k and put it in set for uniques sol, tc=n3*logm(for putting all 3 in set),sc=m
-        
-        #better approach-use hashing 
-        #hash app the numbers in nums into a hashmap along with their occurences eg, (-1,2),(0,1),......
-        #for i in range(0,len(nums)):
-        #hash(nums[i])-- (decrease a count by one for i value)
-        #for j in range (i+1,len(nums)):
-        #hash(nums[j])-- (decrease a count by one for j value)
-        # now find a number in hash table with value ==                 -(a[i]+a[j])
-        #if we get the value with count at least 1 then reducethe values's count by 1 in hash table and put this triplet into a set for sorting each triplet like this 
-        #tc=n2*logm(for inserting inti set)
-        #sc=m+n
-
 

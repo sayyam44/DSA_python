@@ -1,7 +1,6 @@
 def maxProfit(prices):
     #https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
     #optimized solution - tc=n,sc=1
-    #https://www.youtube.com/watch?v=eMSfBgbiEjk&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=12
     max_profit, min_price = 0, float('inf')
     for price in prices:
         min_price = min(min_price, price)
