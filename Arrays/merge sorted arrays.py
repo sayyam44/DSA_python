@@ -1,14 +1,5 @@
-# https://leetcode.com/problems/merge-sorted-array/
-# https://www.geeksforgeeks.org/merge-two-sorted-arrays/
+
 def merge(nums1,nums2,m,n):
-    #difficult 
-    # Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-    # Output: [1,2,2,3,5,6]
-    # Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
-    # The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
-        """
-        Do not return anything, modify nums1 in-place instead.
-        """
         #brute force method - use an empty array of size = size1+size2 , then add all the nums from arr1 and arr2 into that arr and sort that array 
         #tc=nlogn(sorting)+n(for putting all nums from arr1 and arr2 to empty arr)=nlogn
         #sc=n
