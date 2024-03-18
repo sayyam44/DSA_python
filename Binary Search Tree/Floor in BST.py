@@ -1,5 +1,4 @@
 # floor for a value in bst is the value that is just smaller or equal to that value
-# https://www.youtube.com/watch?v=xm_W1ub-K-w&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=44
 class TreeNode:
     def __init__(self, key):
         self.val = key
@@ -15,7 +14,7 @@ class TreeNode:
             # Since we want to find just smaller value, we go towards root.right below
             # Though we have found some root.val that is just smaller than the key, there may be some
             # value that is greater than root.right but smaller than key.
-            if key > root.val:  # We will update the value of floor every time we find some root value smaller than the key value
+            if root.val<key:  # We will update the value of floor every time we find some root value smaller than the key value
                 # and we need to find the value (max) <= key
                 floor = root.val  # Update floor
                 root = root.right  # Because we need to find max value that is just less than key, so in BST, we will find max value on the right of root
