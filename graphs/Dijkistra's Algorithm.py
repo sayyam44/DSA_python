@@ -50,7 +50,12 @@ class Graph():
 			# of the picked vertex only if the current(already existing)
 			# distance(dist[y]) is greater than new distance(dist[x] + self.graph[x][y]) and
 			# the vertex in not in the shortest path tree
+
+			#here x is the current node now and now we are checking for its adjacent nodes only
 			for y in range(self.V):
+				#dist[y]= value in dist list for x's adjacent nodes
+				#dist[x]= value in dist list for x
+				#graph[x][y]= weight
 				if self.graph[x][y] > 0 and sptSet[y] == False and dist[y] > dist[x] + self.graph[x][y]:
 						dist[y] = dist[x] + self.graph[x][y]
 						#dist[y]=inf in 1st case
