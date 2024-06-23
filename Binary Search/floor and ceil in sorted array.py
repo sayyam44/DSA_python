@@ -1,3 +1,6 @@
+# Floor of X is the largest element which is smaller than or equal to X. 
+# Ceil of X is the smallest element which is greater than or equal to X
+
 def findFloorAndCeiling(a, n, x):
     low = 0
     high = n - 1

@@ -1,3 +1,5 @@
+# Floor of X is the largest element which is smaller than or equal to X. 
+
 #Brute force approach
 #tc=n
 # def findFloor(arr,n,x):
