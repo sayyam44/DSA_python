@@ -1,3 +1,6 @@
+#For these type of questions to solve with binary search find the minimum 
+# and maximum of the range of possible ouput values
+
 # https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/
 
 #BRUTE FORCE APPROACH

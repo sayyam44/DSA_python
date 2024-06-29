@@ -1,3 +1,6 @@
+#For these type of questions to solve with binary search find the minimum 
+# and maximum of the range of possible ouput values
+
 # https://leetcode.com/problems/koko-eating-bananas/
 #Brute force approach 
 import math
