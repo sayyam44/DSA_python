@@ -7,7 +7,8 @@
 #4 cases of intersection for a train
 #arrival before and departing after 
 #arr before and departing middle
-
+#arrival after and departing after 
+#arrival and departing middle
 
 def platforms(arr, dep):
     max_count = 0
