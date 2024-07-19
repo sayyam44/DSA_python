@@ -13,7 +13,7 @@
 #if that day does not have -1 then check if the previous index have -1
 #then update it 
 
-#tc=n
+#tc=nlogn+n*maxdeadline
 
 def job_seq(jobs, N):
     # Sort jobs based on profit in descending order
