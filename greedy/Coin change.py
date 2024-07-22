@@ -1,6 +1,7 @@
 # https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
 #given the coins should be in sorted order and no 2 consecutive coins sum
 #should be greater than the 3rd coin value 
+#updated
 class Solution(object):
     def coinChange(self, coins, amount):
         cnt = 0
