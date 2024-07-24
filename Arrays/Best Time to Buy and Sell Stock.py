@@ -1,3 +1,4 @@
+#Updated
 def maxProfit(prices):
     #https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
     #optimized solution - tc=n,sc=1
