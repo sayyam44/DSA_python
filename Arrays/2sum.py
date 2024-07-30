@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/two-sum/
 # https://www.youtube.com/watch?v=UXDSeD9mN-k
-
+#updated
 # Input: nums = [2,7,11,15], target = 9
 # Output: [0,1]
 

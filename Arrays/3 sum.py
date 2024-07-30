@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/3sum/
 # https://www.youtube.com/watch?v=jzZsG8n2R9A
-
+#updated
 # Input: nums = [-1,0,1,2,-1,-4]
 # Output: [[-1,-1,2],[-1,0,1]]
 
