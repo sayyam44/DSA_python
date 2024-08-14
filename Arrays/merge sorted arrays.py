@@ -1,4 +1,4 @@
-
+#updated
 def merge(nums1,nums2,m,n):
         #brute force method - use an empty array of size = size1+size2 , then add all the nums from arr1 and arr2 into that arr and sort that array 
         #tc=nlogn(sorting)+n(for putting all nums from arr1 and arr2 to empty arr)=nlogn
