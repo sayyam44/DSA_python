@@ -1,5 +1,6 @@
 # https://www.codingninjas.com/codestudio/problem-details/frog-jump_3621012
 #MEMOIZATION METHOD (tc=n,sc=n+n)
+#updated
 def f(ind,h,dp):
     if ind==0:
         return 0
@@ -15,6 +16,8 @@ def f(ind,h,dp):
 def frogjump(n,h):
     dp=[-1 for i in range(n+1)] #step 1 of memoization
     return f(n-1,h,dp) #since the ans will be stored at the last i.e.(n-1) index
+    #here in frogjump function is 1 based indexing but in fumc f it is 0 based 
+    #indexing so that is why we did n-1
 
 #TABULATION METHOD (tc=n,sc=n)
 

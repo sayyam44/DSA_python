@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/climbing-stairs/description/
+#updated
+#same as fibonacci numbers
 # Recursive function to find
 # Nth fibonacci number (TC=2*N,SC=1)
 def fib(n):
