@@ -1,6 +1,7 @@
+#House Robber (updated)
 # https://www.codingninjas.com/codestudio/problems/maximum-sum-of-non-adjacent-elements_843261
 # https://leetcode.com/problems/house-robber/
-
+   
 #Normal recursive method (tc=2^n,sc=n)
 def f(ind,nums):
     if (ind==0): return nums[ind]
@@ -8,7 +9,6 @@ def f(ind,nums):
 
     pick = nums[ind]+f(ind-2,nums)
     not_pick = 0 + f(ind-1,nums)
-
     return max(pick,not_pick) 
 
 def maximumNonAdjacentSum(nums):  

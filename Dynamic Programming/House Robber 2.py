@@ -1,6 +1,6 @@
 # https://www.codingninjas.com/codestudio/problems/house-robber_839733
 # https://leetcode.com/problems/house-robber-ii/
-
+#updated
 #according to the ques you cannot take both last and first indeices as they both are adjacent
 
 #logic- firstly leave the last element of the array and apply the same logic on rest of the array i.e ans1
