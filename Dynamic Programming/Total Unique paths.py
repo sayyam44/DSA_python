@@ -1,7 +1,7 @@
 # https://www.codingninjas.com/codestudio/problems/total-unique-paths_1081470
 
 #Recursive solution (TC= 2^m*n, SC= (m-1)+(n-1) (i.e path length) )
-
+#updated
 def f(i,j):
     if (i==0 and j==0):
         return 1
@@ -31,14 +31,14 @@ def f(i,j,dp):
     return dp[i][j] == up+left 
 
 def uniquePaths(m, n):
-    dp = [[-1 for i in range(4)] for j in range(n)] #declaring the dp array of n*4 
+    dp = [[-1 for i in range(m)] for j in range(n)] #declaring the dp array of n*4 
     return f(m-1,n-1,dp)
 
 
 #TABULATION (TC=N*M, SC=N*M)
 
 def uniquePaths(m, n):
-    dp = [[-1 for i in range(4)] for j in range(n)] #declaring the dp array of n*4 
+    dp = [[-1 for i in range(m)] for j in range(n)] #declaring the dp array of n*4 
     for i in range(m):
         for j in range(n):
             if i==0 and j==0:   #base case

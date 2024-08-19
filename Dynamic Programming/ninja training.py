@@ -1,5 +1,5 @@
 # https://www.codingninjas.com/codestudio/problem-details/ninja-s-training_3621003
-
+#updated
 #Recursive Solution 
 def f(day,last,points): #(tc=n*n)
     if day==0:
@@ -11,6 +11,8 @@ def f(day,last,points): #(tc=n*n)
     maxi=0
     for task in range(3):
         if task!=last:
+            # points[day][task] means points of that current day according to
+            # previous task 
             point=points[day][task]+f(day-1,task,points)
             maxi=max(maxi,point)
     return maxi
