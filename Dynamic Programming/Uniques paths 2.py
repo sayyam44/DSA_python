@@ -1,5 +1,63 @@
 # https://www.codingninjas.com/codestudio/problems/maze-obstacles_977241
 # https://leetcode.com/problems/unique-paths-ii/
+#[updated]
+#RECURSIVE SOLUTION (Leetcode)
+class Solution(object):
+    def f(self,m,n,obstacleGrid):
+        if m==len(obstacleGrid)-1 and n==len(obstacleGrid[0])-1:
+            return 1
+        elif m >= len(obstacleGrid) or n >= len(obstacleGrid[0]) or obstacleGrid[m][n]==1:
+            return 0
+        right=self.f(m,n+1,obstacleGrid)
+        down=self.f(m+1,n,obstacleGrid)
+        return right+down
+
+    def uniquePathsWithObstacles(self, obstacleGrid):        
+        m,n=0,0
+        return self.f(m,n,obstacleGrid)
+
+#MEMOIZATION(Leetcode)
+class Solution(object):
+    
+    def f(self, m, n, obstacleGrid):
+        if m >= len(obstacleGrid) or n >= len(obstacleGrid[0]) or obstacleGrid[m][n] == 1:
+            return 0
+        if m == len(obstacleGrid) - 1 and n == len(obstacleGrid[0]) - 1:
+            return 1
+        if self.dp[m][n] != -1:
+            return self.dp[m][n]
+        
+        right = self.f(m, n + 1, obstacleGrid)
+        down = self.f(m + 1, n, obstacleGrid)
+        
+        self.dp[m][n] = right + down
+        return self.dp[m][n]
+
+    def uniquePathsWithObstacles(self, obstacleGrid):
+        self.dp = [[-1 for _ in range(len(obstacleGrid[0]))] for _ in range(len(obstacleGrid))]
+        return self.f(0, 0, obstacleGrid)
+
+#TABULATION (Leetcode)
+class Solution(object):
+
+    def uniquePathsWithObstacles(self, obstacleGrid):
+        a = len(obstacleGrid)
+        b = len(obstacleGrid[0])
+        dp = [[0 for _ in range(b)] for _ in range(a)]
+
+        for i in range(a-1, -1, -1):
+            for j in range(b-1, -1, -1):
+                if obstacleGrid[i][j] == 1:
+                    dp[i][j] = 0
+                elif i == a-1 and j == b-1:
+                    dp[i][j] = 1
+                else:
+                    down = dp[i+1][j] if i < a-1 else 0
+                    right = dp[i][j+1] if j < b-1 else 0
+                    dp[i][j] = down + right
+
+        return dp[0][0]
+        
 #Recursive solution (TC= 2^m*n, SC= (m-1)+(n-1) (i.e path length) )
 
 # adding one more base case rest all code is same as total unique paths
