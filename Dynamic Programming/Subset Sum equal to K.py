@@ -1,5 +1,4 @@
 #https://www.naukri.com/code360/problems/subset-sum-equal-to-k_1550954
-
 #Memoization 
 def subsetSumUtil(ind, target, arr, dp):
     # Check if the target sum has been achieved.
