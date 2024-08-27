@@ -7,58 +7,58 @@
 
 #We will try to pick lengths and make them equal to the given N (N->Target)
 
-#Recursion
-# def f(ind,target,price):
-#     if ind==0:#if we are at index 0 then what would be the price to still make the target
-#         return target*price[0]
-#     not_take=0+f(ind-1,target,price)
-#     take=float('-inf')
-#     rod_len=ind+1 #as we are doing 0 based indexing
-#     if (rod_len<=target):
-#         take=price[ind]+f(ind,target-rod_len,price)
-#     return max(take,not_take)
+# Recursion
+def f(ind,target,price):
+    if ind==0:#if we are at index 0 then what would be the price to still make the target
+        return target*price[0]
+    not_take=0+f(ind-1,target,price)
+    take=float('-inf')
+    rod_len=ind+1 #as we are doing 0 based indexing
+    if (rod_len<=target):
+        take=price[ind]+f(ind,target-rod_len,price)
+    return max(take,not_take)
 
-# def CutRod(price,n):
-#     return f(len(price)-1,n,price)
+def CutRod(price,n):
+    return f(len(price)-1,n,price)
 
-# price=[2,5,7,8,10]
-# n=5
-# print(CutRod(price,n))
+price=[2,5,7,8,10]
+n=5
+print(CutRod(price,n))
 
 
-#Memoization
-# def f(ind, target, price, dp):
-#     # Base case: if the index is 0, the cost to make the target is just the target times the price at index 0
-#     if ind == 0:
-#         return target * price[0]
+# Memoization
+def f(ind, target, price, dp):
+    # Base case: if the index is 0, the cost to make the target is just the target times the price at index 0
+    if ind == 0:
+        return target * price[0]
     
-#     # Check if the result is already computed
-#     if dp[ind][target] != -1:
-#         return dp[ind][target]
+    # Check if the result is already computed
+    if dp[ind][target] != -1:
+        return dp[ind][target]
     
-#     # Option 1: Don't take the current length
-#     not_take = f(ind - 1, target, price, dp)
+    # Option 1: Don't take the current length
+    not_take = f(ind - 1, target, price, dp)
     
-#     # Option 2: Take the current length if possible
-#     take = float('-inf')
-#     rod_len = ind + 1  # Because index is 0-based, rod length is ind + 1
+    # Option 2: Take the current length if possible
+    take = float('-inf')
+    rod_len = ind + 1  # Because index is 0-based, rod length is ind + 1
     
-#     if rod_len <= target:
-#         take = price[ind] + f(ind, target - rod_len, price, dp)
+    if rod_len <= target:
+        take = price[ind] + f(ind, target - rod_len, price, dp)
     
-#     # Store and return the maximum of the two options
-#     dp[ind][target] = max(take, not_take)
-#     return dp[ind][target]
+    # Store and return the maximum of the two options
+    dp[ind][target] = max(take, not_take)
+    return dp[ind][target]
 
-# def CutRod(price, n):
-#     # Initialize the memoization table with -1
-#     dp = [[-1 for _ in range(n + 1)] for _ in range(len(price))]
-#     return f(len(price) - 1, n, price, dp)
+def CutRod(price, n):
+    # Initialize the memoization table with -1
+    dp = [[-1 for _ in range(n + 1)] for _ in range(len(price))]
+    return f(len(price) - 1, n, price, dp)
 
-# # Example usage
-# price = [2, 5, 7, 8, 10]
-# n = 5
-# print(CutRod(price, n))  # Output should be the maximum profit
+# Example usage
+price = [2, 5, 7, 8, 10]
+n = 5
+print(CutRod(price, n))  # Output should be the maximum profit
 
 
 
