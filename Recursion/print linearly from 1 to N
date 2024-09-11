@@ -1,0 +1,22 @@
+#TC=O(n)
+#sc=O(n)--> Internal memory--> That is for the stack space that all the n function calls were waiting in the stack till the base case returns 
+
+def f(i,n):
+    if i>n:
+        return 
+    print(i)
+    f(i+1,n)
+
+def linear(n):
+    f(1,n)
+
+
+#USING BACKTRACKING
+def f(i,n):
+    if i<1:
+        return 
+    f(i-1,n)
+    print(i)
+
+def linear(n):
+    f(n,n)
