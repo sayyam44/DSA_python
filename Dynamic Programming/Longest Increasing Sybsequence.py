@@ -115,4 +115,4 @@ class Solution(object):
 # Example usage
 solution = Solution()
 nums = [10, 9, 2, 5, 3, 7, 101, 18]
-print(solution.lengthOfLIS(nums))  # Output: 4
+print(solution.lengthOfLIS(nums))  
