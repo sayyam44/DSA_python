@@ -1,6 +1,4 @@
 # https://leetcode.com/problems/word-search/description/
-# https://www.youtube.com/watch?v=pfiQ_PS1g8E
-#ipad notes
 
 #TC=n*m*dfs 
 #dfs runs len(word) times everytime\
