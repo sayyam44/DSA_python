@@ -1,11 +1,14 @@
+#https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+#optimized solution - tc=n,sc=1
 #Updated
+
+#In this ques we are finding the point og min price till now and selling it on every price and 
+#thus calculating the profit and max_profit on each and every day.
 def maxProfit(prices):
-    #https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-    #optimized solution - tc=n,sc=1
     max_profit, min_price = 0, float('inf')
     for price in prices:
         min_price = min(min_price, price)
-        profit = price - min_price
+        profit = price - min_price #profit = sell on current day - min price till now
         max_profit = max(max_profit, profit)
     return max_profit
 
@@ -24,13 +27,7 @@ def maxProfit(prices):
         
     #     return (value2-value1)
 
-    # brute force method,tc=n2,sc=1
-    # def maxProfit_my_correct_ans(self, prices: List[int]) -> int:
-    #     a=min(prices)
-    #     ind_a=prices.index(a)
-        
-    #     b=max(prices[ind_a:])
-    #     return (b-a)
+
     
 
 
