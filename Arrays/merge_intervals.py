@@ -1,4 +1,5 @@
-#updated
+#updated new
+# https://leetcode.com/problems/merge-intervals/description/
 def merge(I):
             
         #optimized -tc=nlogn(for sorting)+n(for iterating)=nlogn,,sc=1
