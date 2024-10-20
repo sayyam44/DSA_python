@@ -1,6 +1,6 @@
 #[1,3,2,0,2]= True
 #[1,2,0,0,0]=False
-
+#updated - 1
 #we will take a parameter reachable initially be 0, now iterate through the array and check the maximum 
 #jumps that can happen at that point and if after taking that much of jumps we reach to an index that 
 # is greater than the reachable variable then update reachable= i+nums[i] or else reachable will remain 
