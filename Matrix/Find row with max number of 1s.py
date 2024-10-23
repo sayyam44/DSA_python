@@ -1,5 +1,4 @@
-# https://www.youtube.com/watch?v=z092lX-nhik
-
+# https://www.geeksforgeeks.org/find-the-row-with-maximum-number-1s/
 #since the rows are sorted use binary search
 # The time complexity is O(m+n) because we can possibly go as far left as we came ahead in the first step.
 
