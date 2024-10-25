@@ -20,15 +20,6 @@ class CreateLL:
                 curr.next=newnode
         return self.head
     
-    def reverse(self):
-        prev,curr=None,self.head
-        while curr:
-            nxt=curr.next
-            curr.next=prev
-            prev=curr
-            curr=nxt
-        self.head = prev
-    
     def printll(self):
         curr=self.head
         while curr:
@@ -41,5 +32,3 @@ newll=CreateLL()
 newll.createll(lst)
 newll.printll()
 
-newll.reverse()
-newll.printll()
