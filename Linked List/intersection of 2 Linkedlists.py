@@ -1,6 +1,10 @@
+#Updated
+#https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
+
+# Definition for singly-linked list.
 class ListNode:
-    def __init__(self, x):
-        self.val = x
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 class Solution:
@@ -24,9 +28,27 @@ class Solution:
 # On the second traversal, they either hit or miss. 
 # if they meet, pa or pb would be the node we are looking for, 
 # if they didn't meet, they will hit the end at the same iteration, pa == pb == None, return either one of them is the same,None 
-           
-        
-        #optimal 2- tc=m+(m-n)+n=2m=m, sc=1
+
+#Updated read this solution
+#optimal 1- using hash map, tc=m+n,sc=n
+# use hash map/set and put all values of 1st head in hash map and then iterate through
+#  the 2nd head and check if this value is already present in the hash map 
+
+# hs=set()
+# while headA:
+#     curr=headA #curr is initially pointing towards the address of head of headA
+#     hs.add(curr)
+#     curr=curr.next
+# while headB:
+#     curr2=headB
+#     if curr2 not in hs:
+#         curr2=curr2.next
+#     else:
+#         return curr2
+# return None
+
+#This is not imp 
+#optimal 2- tc=m+(m-n)+n=2m=m, sc=1
 # step1- find the length of both the linked list using dummy nodes
 #step2- find the difference between their lengths
 #step3-put dummy 2 at the nth position of longer linked list 
@@ -69,40 +91,7 @@ class Solution:
 #         cur=cur.next
 #     return c
 
-
-
-#brute force-tc=m*n,sc=n(for hashmap)
-# directly iterate through both the heads and find the interection point 
-# def getIntersectionNode(head1, head2):
-#     while head2:
-#         temp = head1
-#         while temp:
-#             # if both Nodes are same
-#             if temp == head2:
-#                 return head2
-#             temp = temp.next
-#         head2 = head2.next
-#     # intersection is not present between the lists
-#     return None
  
-
-#optimal 1- using hash map, tc=m+n,sc=n
-# use hash map/set and put all values of 1st head in hash map and then iterate through
-#  the 2nd head and check if this value is already present in the hash map 
-
-# hs=set()
-# while headA:
-#     curr=headA #curr is initially pointing towards the address of head of headA
-#     hs.add(curr)
-#     curr=curr.next
-# while headB:
-#     curr2=headB
-#     if curr2 not in hs:
-#         curr2=curr2.next
-#     else:
-#         return curr2
-# return None
-
 
     
 
