@@ -12,13 +12,17 @@ class Solution:
         #base condition
         if not head:
             return None
+        
         #finding the length of ll
         cur=head
         l=0
         while cur:
             l+=1 #finding the length of ll i.e. l
-            cur=cur.next
-        
+            if cur.next:
+                cur=cur.next
+            else:
+                break
+            
         #rationalizing the number of rotations on the given k and length of ll
         if l<k: #if len of ll is smaller than given k 
             rot=k%l
@@ -26,10 +30,11 @@ class Solution:
             rot=k
         else:
             rot=0
+        
         cur.next=head #curr was pointing to last element of ll ,now it will be pointing to head of ll that is iit has become circular ll
         b=head
         steps_from_front=l-rot #since we need to rotate by k times from end
-         #lenght of ll - given k = the node whose pointer need to point at null (i.e. it will be the last 
+         #length of ll - given k = the node whose pointer need to point at null (i.e. it will be the last 
          #element of ll)
         for i in range(steps_from_front-1):
             b=b.next #b has reached the last node of the required ll
@@ -37,4 +42,4 @@ class Solution:
         b.next=None #deleting the connection between lastnode and head node of req ll
         return head
         
- 
+          

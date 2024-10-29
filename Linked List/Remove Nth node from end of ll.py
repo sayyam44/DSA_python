@@ -94,4 +94,59 @@ rem_ll.printll()
 
 
 
+#Method-3 (remove (length of ll-k)th element from front)
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def removeKthFromEnd(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        # Step 1: Calculate the length of the linked list
+        length = 0
+        current = head
+        while current:
+            length += 1
+            current = current.next
+        
+        # Step 2: Calculate the position from the front
+        pos_from_front = length - k
+        
+        # Edge case: If we're removing the head node
+        if pos_from_front == 0:
+            return head.next
+        
+        # Step 3: Traverse to the (pos_from_front - 1)-th node
+        current = head
+        for _ in range(pos_from_front - 1):
+            current = current.next
+        
+        # Step 4: Remove the node by adjusting pointers
+        if current.next:
+            current.next = current.next.next
+        
+        return head
+
+# Example usage
+# Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5
+head = ListNode(1)
+head.next = ListNode(2)
+head.next.next = ListNode(3)
+head.next.next.next = ListNode(4)
+head.next.next.next.next = ListNode(5)
+
+solution = Solution()
+# Remove the 2nd node from the end, which is "4" in this case
+updated_head = solution.removeKthFromEnd(head, 2)
+
+# Printing the updated list
+current = updated_head
+while current:
+    print(current.val, end=" -> ")
+    current = current.next
+print("None")
+
+
+
+
 
