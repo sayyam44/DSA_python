@@ -1,4 +1,5 @@
-#tc=0(n)
+# updated -1 
+# tc=0(n)
 from requests import head
 class ListNode:
     def __init__(self,val=0,prev=None,next=None):
@@ -18,7 +19,7 @@ class sol:
             #till first is not equal to last and first pointer should not exceed the first pointer
             if first.val+last.val==x:
                 found=True
-                print("(",first.val "," last.val)
+                print(first.val, "," , last.val)
                 #if we found the pair with sum==x then make move both pointers by one
                 first=first.next
                 last=last.prev

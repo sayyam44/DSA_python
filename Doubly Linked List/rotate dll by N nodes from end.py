@@ -1,5 +1,5 @@
+# updated
 from sklearn.cluster import k_means
-
 class ListNode:
     def __init__(self,val=0,prev=None,next=None):
         self.prev=prev
@@ -33,7 +33,3 @@ class sol:
         head.prev=None
         b.next=None
         return head
-
-
-
-            
