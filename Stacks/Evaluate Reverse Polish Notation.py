@@ -9,16 +9,16 @@ class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack=[]
         for i in tokens:
-            if i == "+":
-                stack.append(stack.pop()+stack.pop())
-            elif i == "*":
-                stack.append(stack.pop()*stack.pop())
-            elif i == "-":
-                a,b=stack.pop(),stack.pop()
-                stack.append(b-a) 
-            elif i == "/":
-                a,b=stack.pop(),stack.pop()
-                stack.append(int(b/a)) #in order to round the decimal division(b/a) towards zero
+            if i == '+':
+                stack.append(int(stack.pop())+int(stack.pop()))
+            elif i=='*':
+                stack.append(int(stack.pop())*int(stack.pop()))
+            elif i=='-':
+                a,b=int(stack.pop()),int(stack.pop())
+                stack.append(b-a)
+            elif i=='/':
+                a,b=int(stack.pop()),int(stack.pop())
+                stack.append(b/a)
             else:
-                stack.append(int(i))
-        return stack[0] #after all the process only single value will be left 
+                stack.append(i)
+        return int(stack[0])
