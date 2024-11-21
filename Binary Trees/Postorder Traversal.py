@@ -1,3 +1,4 @@
+# postorder
 # https://leetcode.com/problems/binary-tree-postorder-traversal/
 #METHOD 1- POSTORDER RECURSIVE
 #TC=N,SC=N(auxiliary stack space)
