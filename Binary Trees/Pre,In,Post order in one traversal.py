@@ -1,14 +1,15 @@
+# updated
 # https://www.geeksforgeeks.org/preorder-postorder-and-inorder-traversal-of-a-binary-tree-using-a-single-stack/
-# https://www.youtube.com/watch?v=ySp2epYvgTE
 
 def allTraversal(root):
     pre=[]
     post=[]
     inn=[]
     s=[]
-    s.append([root,1]) #node,num we will increment 1 when we put this into any of the above 3 lists
-    #keep one thing in mind that we will only pop in postorder traversal because we need all the nodes in 
-    # all the 3 traversals
+    s.append([root,1]) #node,num we will increment 1 when we put this 
+    # into any of the above 3 lists keep one thing in mind that we 
+    # will only pop in postorder traversal because we need all the 
+    # nodes in all the 3 traversals.
     while (len(s)):
         p=s[-1] # Stores the top element of the stack both node and num
         if p[1]==1:

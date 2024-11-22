@@ -1,5 +1,5 @@
+# updated
 #TC=N,SC=1
-
 #always print curr value in just 2 cases 1st when the curr is at the leftmost node and second when 
 # just before moving curr to its left in second last case.
 class Node:
