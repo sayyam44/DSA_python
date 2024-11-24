@@ -1,18 +1,23 @@
+# updated
 # sc=n,tc=n
 
-#vertical order traversal is followed over here we will create a vertical line '0' throught the root node
-# covering all the nodes directly below it and like that make vertical line to its left by -1,-2,....
+#vertical order traversal is followed over here we will create a 
+# vertical line '0' through the root node covering all the nodes 
+# directly below it and like that make vertical line to its left by -1,-2,....
 #and also on the right side draw vertical lines with +1,+2,...
 #and we need to find the last elements of all these vertical lines.
 
-#append all the values in form of node,hd(hosrizontal distance) into the queue and all its child nodes along
-# with left's child's level -1,-2,-3 and also add its right child along with its level +1,+2,...
+#append all the values in form of node,hd(hosrizontal distance) into 
+# the queue and all its child nodes along
+# with left's child's level -1,-2,-3 and also add its right 
+# child along with its level +1,+2,...
 
 #now pop from the queue and append one by one the values into the dict in hd,node format and if some 
 #other element comes while traversing the queue with same hd we need to update it like in level order traversal
 #but vertically.
 
 # IN THIS CASE WE WILL FOLLOOW DFS FORMAT
+
 from collections import deque
 class Node:
      
@@ -26,13 +31,11 @@ class Node:
 def bottomview(root):
     if not root:
         return 
-    
-    hd=0
-
-    m=dict() # for storing hd,node and will update it when some other node comes with the same hd.
+    m=dict() # for storing hd,node and will update it when some other 
+    # node comes with the same hd.
     q=deque([]) # for storing node,hd 
 
-    root.hd=hd # Assign initialized horizontal distance value to root node and add it to the queue.
+    root.hd=0 # Assign initialized horizontal distance value to root node and add it to the queue.
     q.append(root) # storing node,hd as we have already defined hd in __init__ class
 
     while q:
@@ -67,3 +70,6 @@ if __name__=='__main__':
     print("Bottom view of the given binary tree :")
         
     bottomview(root)
+
+
+

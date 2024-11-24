@@ -1,34 +1,33 @@
 import collections
+from typing import List
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-        self.hd=float('inf')
-        self.level=-1
+        self.hd = float('inf')  # horizontal distance (not actually used here)
+        self.level = -1         # level (not actually used here)
 
 class Solution:
-    
     def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
-        dic = collections.defaultdict(list) #defining a dict with values as empty lists
-        q = collections.deque([[root, 0, 0]]) #val,hd,level
+        dic = collections.defaultdict(list)  # Dictionary to store nodes by horizontal distance
+        q = collections.deque([[root, 0, 0]])  # Queue for BFS: [node, horizontal distance, level]
 
         while q:
-            for i in range (len(q)):
-                node,x,y=q.popleft()
-                dic[x].append((y,node.val)) # hd->level,val #eg. vertical={0:[0,3],-1:[1,9]....etc}
+            for i in range(len(q)):
+                node, x, y = q.popleft()
+                dic[x].append((y, node.val))  # Append (level, value) to the corresponding hd
 
                 if node.left:
-                    q.append(node.left,x-1,y+1) # going down if node. left is present then hd by -1 and level by +1 
+                    q.append([node.left, x-1, y+1])  # Move left: hd - 1, level + 1
                 if node.right:
-                    q.append(node.left,x+1,y+1) # going down if node. left is present then hd by +1 and level by +1 
-        
+                    q.append([node.right, x+1, y+1])  # Move right: hd + 1, level + 1
+
         output = []
-        for x in sorted(dic.keys()): #firstly - here we are sorting dict on hd values
-            column = [i[1] for i in sorted(dic[x])]
-            #here we are creating a list which contains the values on a particular hd on the basis of 
-            # incereasing levels.
+        for x in sorted(dic.keys()):  # Sort by horizontal distance
+            column=[]
+            for i in sorted(dic[x]):
+                column.append(i[1])
             output.append(column)
-        
         return output
