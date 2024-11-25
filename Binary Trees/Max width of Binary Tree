@@ -1,3 +1,4 @@
+# updated
 #Width of binary tree - Number of the nodes in a level between any 2 nodes.
 #here we will assign an index to each node (here 0 based indexing is done)
 # 0 based indexing means if the root has index i then its leftnode will have index as 2i and its rightnode have index 2i+1
