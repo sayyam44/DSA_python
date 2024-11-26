@@ -1,10 +1,6 @@
+# #updated
 # https://leetcode.com/problems/binary-tree-paths/
 #1st method
-# class TreeNode:
-#     def __init__(self,val=0,left=None,right=None):
-#         self.val= val
-#         self.left=left
-#         self.right=right
 def binarytreepaths(self,root):
     ans=[]
     def dfs(root,s):

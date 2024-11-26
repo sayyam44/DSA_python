@@ -1,5 +1,9 @@
-#Lowest common ancestor is the deepest common node of 2 nodes 
-# Definition for a binary tree node.
+#updated
+#https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+#The logic is move to left then to right as soon as we find any node
+#that is equal to either p or q we will return the root val and when 
+#at some node we find both the left and right side as not null then 
+#that will be the lowest common ancestor
 class TreeNode:
     def __init__(self, x):
         self.val = x
