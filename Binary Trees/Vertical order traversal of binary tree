@@ -1,3 +1,45 @@
+# https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+#Method 1 - DFS 
+from collections import defaultdict
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+
+        # Dictionary to store nodes: {horizontal_distance: list of values}
+        column_table = defaultdict(list)
+
+        # DFS helper function
+        def dfs(node, hd, level):
+            if not node:
+                return
+            # Add the node's value along with its level into the column table
+            column_table[hd].append((level, node.val))
+            dfs(node.left, hd - 1, level + 1)
+            dfs(node.right, hd + 1, level + 1)
+
+        # Start DFS from the root at hd=0 and level=0
+        dfs(root, 0, 0)
+
+        # Build the result by sorting the keys and flattening sorted values
+        result = []
+        for hd in sorted(column_table):  # Iterate over sorted horizontal distances
+            # Extract node values in level order for the current horizontal distance
+            result.append([val for _, val in sorted(column_table[hd])])
+
+        return result
+    
+
+
+#Method-2 BFS 
 import collections
 from typing import List
 
