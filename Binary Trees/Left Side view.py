@@ -2,22 +2,16 @@
 #tc=n,sc=H(height of tree)
 class Solution:
     def leftSideView(self, root: Optional[TreeNode]) -> List[int]:
-        #root,right,left traversal
         self.res=[]
-        self.newfunc(root,0) #root,level
-        return self.res
-    
-    #FIRST NODE OF EVERY LEVEL WILL GIVE THE LEFT SIDE VIEW
-    def newfunc(self,root,level):
-        if not root:
-            return
-        if level == len(self.res): #IF ONLY SINGLE SIDE OF THE TREE IS PRESENT EITHER LEFT OR RIGHT
-            self.res.append(root.val)
-        self.newfunc(root.left,level+1) #jonsa view dekhna hai usko pehle iterate karna hai so that 
-        #level = res size par left side vale elements print honge
-        self.newfunc(root.right,level+1)
-
-        
+        def newfunc(root,level):
+            if not root:
+                return 
+            if level==len(self.res):
+                self.res.append(root.val)
+            newfunc(root.left,level+1)
+            newfunc(root.right,level+1)
+        newfunc(root,0)
+        return self.res        
 
 #Easy Method (just like finding the height of the binary tree)
 from collections import deque

@@ -5,16 +5,15 @@ class Treenode:
         self.left=left
         self.right=Right
 
-class Solution :
-    def rsv(self,root):
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         self.res=[]
-        self.userfunc(root,0)
+        def newfunc(root,level):
+            if not root:
+                return 
+            if level==len(self.res):
+                self.res.append(root.val)
+            newfunc(root.right,level+1)
+            newfunc(root.left,level+1)
+        newfunc(root,0)
         return self.res
-    
-    def userfunc(self,root,level):
-        if not root:
-            return 
-        if level==len(self.res):
-            self.res.append(root.val)
-        self.userfunc(root.right,level+1)
-        self.userfunc(root.left,level+1)
