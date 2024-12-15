@@ -2,26 +2,29 @@
 # https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/
 
 # tc= height of the tree
-class TreeNode:
-    def __init__(self,key):
-        self.val=key
-        self.left=None
-        self.right=None
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-#the node will move towards left if the current value to be inserted is smaller than the upper bound 
-# if the node is added towards left then upper bound is updated by the currents value
-# if the node is to be added on the right then the upper bound will remain same 
-class solution:
-    def insert(self,root,k):
+class Solution:
+    def insert(self, root: TreeNode, i: int) -> TreeNode:
         if not root:
-            return Treenode(val=k)
-        if root.val>k: #if the value to be added that is k is smaller than the root value 
-            root.left=self.insert(root.left,k)
-        if root.val<k:
-            root.right=self.insert(root.right,k)
+            return TreeNode(val=i)
+        if i < root.val:
+            root.left = self.insert(root.left, i)
+        elif i > root.val:
+            root.right = self.insert(root.right, i)
         return root
-    def bstFromPreorder(self,preorder):
-        root=TreeNode(preorder[0])
+
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        if not preorder:
+            return None
+        # Create the root node
+        root = TreeNode(preorder[0])
+        # Insert the remaining elements
         for i in preorder[1:]:
-            self.insert(root,i)
-        return root  
+            self.insert(root, i)
+        return root
