@@ -1,5 +1,29 @@
-#Kth largest element in BST using reverse inorder traversal.
+# updated
+#Method-1 
+class Solution:
+    def kthLargest(self, root: Optional[TreeNode], k: int) -> int:
+        # Helper function to count the nodes in a subtree
+        def count_nodes(node):
+            if not node:
+                return 0
+            return 1 + count_nodes(node.left) + count_nodes(node.right)
 
+        while root:
+            right_count = count_nodes(root.right)  # Size of the right subtree
+            
+            if k <= right_count:  # If k lies in the right subtree
+                root = root.right
+            elif k == right_count + 1:  # If the current root is the kth largest
+                return root.val
+            else:  # If k lies in the left subtree
+                k -= (right_count + 1)  # Adjust k to skip the current root and right subtree
+                root = root.left
+        
+        return -1  # If k is invalid
+
+
+#Kth largest element in BST using reverse inorder traversal.
+#Method-2 using Inorder Traversal 
 class TreeNode:
     def __init__(self, val):
         self.val = val

@@ -1,4 +1,25 @@
+# updated
+# https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/
+#Method-1 
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        def counting(node):
+            if not node:
+                return 0
+            return 1+counting(node.left)+counting(node.right)
+        while root:
+            left_count=counting(root.left)
+            if k<=left_count:
+                root=root.left
+            elif k==left_count+1:
+                return root.val
+            else:
+                k-=left_count+1
+                root=root.right
+        
+
 #USING INORDER TRAVERSAL , TC=O(n)
+#METHOD-2 Using inorder traversal 
 class TreeNode:
     def __init__(self,val):
         self.val=val

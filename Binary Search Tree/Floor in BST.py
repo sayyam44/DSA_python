@@ -1,26 +1,24 @@
+# updated
 # floor for a value in bst is the value that is just smaller or equal to that value
+# https://www.geeksforgeeks.org/problems/floor-in-bst/0
 class TreeNode:
     def __init__(self, key):
         self.val = key
         self.left = None
         self.right = None
 
-    def floor_(self, root, key):
-        floor = -1  # Update floor whenever we find some value smaller than or equal to key
-        while root:
-            if root.val == key:
-                floor = root.val
-                return floor
-            # Since we want to find just smaller value, we go towards root.right below
-            # Though we have found some root.val that is just smaller than the key, there may be some
-            # value that is greater than root.right but smaller than key.
-            if root.val<key:  # We will update the value of floor every time we find some root value smaller than the key value
-                # and we need to find the value (max) <= key
-                floor = root.val  # Update floor
-                root = root.right  # Because we need to find max value that is just less than key, so in BST, we will find max value on the right of root
-            else:
-                root = root.left
-        return floor
+    class Solution:
+        def floor(self, root, x):
+            floor = -1
+            while root:
+                if root.val == x:
+                    return root.val  # Exact match for x found
+                elif root.val > x:
+                    root = root.left  # Move to the left subtree
+                else:
+                    floor = root.val  # Update floor to the current value
+                    root = root.right  # Move to the right subtree
+            return floor
 
 
 # Create a sample binary search tree
