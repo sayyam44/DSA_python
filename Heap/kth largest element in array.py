@@ -1,14 +1,18 @@
 # https://leetcode.com/problems/kth-largest-element-in-an-array/
-# Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
-# Output: 4
-
-#brute force by using sorting (tc=nlogn)
+#Method-1
+import heapq
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        nums.sort()
-        return nums[len(nums)-k]
+        heap=nums[:k]
+        heapq.heapify(heap)
+        for i in nums[k:]:
+            if i>heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap,i)
+        return heap[0]
 
 
+#Method-2
 #Optimized approach- n (for converting array into heap) + klogn(logn for poping from the heap and we need to pop k times)
 
 #most optimized approach tc=o(n) avg case , o(n2) worst case
