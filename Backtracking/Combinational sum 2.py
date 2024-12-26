@@ -2,21 +2,21 @@
 #Read Subsets 2 solution before this
 
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        candidates.sort()
-        def dfs(ind, curr, total):
-            if total == target:
+    def combinationSum2(self, nums: List[int], target: int) -> List[List[int]]:
+        nums.sort()
+        res=[]
+        curr=[]
+        def dfs(i):
+            if sum(curr)==target:
                 res.append(curr.copy())
-                return
-            if total > target or ind == len(candidates):
-                return
-            curr.append(candidates[ind])
-            dfs(ind+1, curr, total + candidates[ind])
+                return 
+            if i>=len(nums) or sum(curr)>target:
+                return 
+            curr.append(nums[i])
+            dfs(i+1)
             curr.pop()
-            while ind+1<len(candidates) and candidates[ind]==candidates[ind+1]:
-                ind+=1
-            dfs(ind + 1, curr, total)
-
-        dfs(0, [], 0)
+            while (i+1)<len(nums) and nums[i]==nums[i+1]:
+                i+=1
+            dfs(i+1)
+        dfs(0)
         return res
