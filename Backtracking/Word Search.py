@@ -1,3 +1,4 @@
+# updated
 # https://leetcode.com/problems/word-search/description/
 
 #TC=n*m*dfs 
@@ -8,7 +9,6 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
 
         directions=[[1,0],[0,1],[-1,0],[0,-1]]
-        res=[]
         def dfs(row,col,ind):
             if ind==len(word):
                 return True
