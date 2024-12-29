@@ -1,3 +1,4 @@
+# updated
 # https://leetcode.com/problems/additive-number/
 
 # The number of recursive calls for each valid sequence is O(N) and 
@@ -5,26 +6,20 @@
 #Overall TC= O(n^3)
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
-        n=len(num)
-        def dfs(first,second,start):
-            if start==n:
+        def dfs(num1,num2,start):
+            if start==len(num):
                 return True
-            
-            next_num=str(int(first)+int(second))
-            next_len=len(next_num)
-
-            if next_num == num[start:start+next_len]:
-                return dfs(second,next_num,start+next_len)
+            summation=str(int(num1)+int(num2))
+            sum_len=len(summation)
+            if summation==num[start:start+sum_len]:
+                return dfs(num2,summation,start+sum_len)
             return False
-
-        for i in range(1,n):
-            for j in range(i+1,n):
-                first=num[:i]
-                second=num[i:j]
-                # Skip numbers with leading zeros (except the number "0" itself)
-                if (first[0]=='0' and len(first)>1) or (second[0]=='0' and len(second)>1):
+        for i in range(1,len(num)):
+            for j in range(i+1,len(num)):
+                num1=num[:i]
+                num2=num[i:j]
+                if (num1[0]=='0' and len(num1)>1) or (num2[0]=='0' and len(num2)>1):
                     continue
-                
-                if dfs(first,second,j):
+                if dfs(num1,num2,j):
                     return True
         return False
