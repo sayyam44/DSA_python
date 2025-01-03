@@ -1,15 +1,25 @@
 #updated
 # https://leetcode.com/problems/non-decreasing-subsequences/
-def main(nums):
-    res=set()
-    def backtrack(ind,path_till_now):
-        if len(path_till_now)>=2:
-            res.add(tuple(path_till_now))
-        for i in range(ind,len(nums)):
-            if not path_till_now or path_till_now[-1]<=nums[i]:
-                backtrack(i+1,path_till_now+[nums[i]])
-
-    backtrack(0,[])
-    return list(res)
-
-print(main([4, 6, 7, 7]))
+# https://leetcode.com/problems/non-decreasing-subsequences/
+class Solution:
+    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+        res = set()
+        curr = []
+        
+        def dfs(i):
+            if i >= len(nums) and len(curr) <= 1:  # Combined condition to add subsequence
+                # res.add(tuple(curr))  # Convert list to tuple for uniqueness
+                return
+            if i >= len(nums) and len(curr) > 1:  # Combined condition to add subsequence
+                res.add(tuple(curr))  # Convert list to tuple for uniqueness
+                return
+            
+            if len(curr) == 0 or curr[-1] <= nums[i]:  # Check non-decreasing order
+                curr.append(nums[i])
+                dfs(i + 1)
+                curr.pop()  # Backtrack
+            
+            dfs(i + 1)  # Explore without including nums[i]
+        
+        dfs(0)
+        return [list(seq) for seq in res]  # Convert tuples back to lists
