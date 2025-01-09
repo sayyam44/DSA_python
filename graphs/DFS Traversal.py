@@ -1,20 +1,20 @@
 from collections import defaultdict
 
-class graph():
+class graph:
     def __init__(self):
         self.graph=defaultdict(list)
     def addedge(self,u,v):
         self.graph[u].append(v)
-
-    def dfs_recur(self,v,visited):
-        visited[v]=True
+    def dfs(self,v,visited):
         print(v,end=" ")
+        visited[v]=True
         for i in self.graph[v]:
-            if visited[i]==False:
-                self.dfs_recur(i,visited)
-    def dfs(self,v):
+            if not visited[i]:
+                self.dfs(i,visited)
+        return 
+    def func(self,start):
         visited=[False]*(max(self.graph)+1)
-        self.dfs_recur(v,visited)
+        self.dfs(start,visited)
 
 
 g=graph()
@@ -24,6 +24,6 @@ g.addedge(1, 2)
 g.addedge(2, 0)
 g.addedge(2, 3)
 g.addedge(3, 3)
-g.dfs(2)
+g.func(2)
 
 

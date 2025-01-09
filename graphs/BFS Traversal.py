@@ -4,22 +4,23 @@ class Graph:
     def __init__(self):
         self.graph=defaultdict(list)
 
-    def addedge(self,u,v):
+    def addEdge(self,u,v):
         self.graph[u].append(v)
-
-    def bfs(self,s): #s is the value from which bfs will begin 
-        visited = [False] * (max(self.graph) + 1) #we are doing max(self.graph) because the graph may not be a connected graph
+    
+    def bfs(self,start):
+        visited=[False]*(max(self.graph)+1)
         q=[]
-        q.append(s)
-        visited[s]=True
+        q.append(start)
+        visited[start]=True
 
         while q:
-            s=q.pop(0)
-            print(s, end=" ")
-            for i in self.graph[s]:#iterating through all the neighbors of s
-                if visited[i]==False:
+            val=q.pop(0)
+            print(val,end=" ")
+            for i in self.graph[val]:
+                if not visited[i]:
                     q.append(i)
                     visited[i]=True
+        
 
 g = Graph()
 g.addEdge(0, 1)
