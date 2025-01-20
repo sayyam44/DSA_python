@@ -1,3 +1,4 @@
+# updated
 #we will make two visited arrays , first array will be normally become true when the element's dfs is called 
 #and in 2nd array it will become true same way but again will become false when it moves recursively backwards
 # If for an element both the arrays have true value this means there is a cycle in graph.
