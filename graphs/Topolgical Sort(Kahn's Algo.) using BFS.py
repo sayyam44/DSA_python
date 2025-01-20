@@ -1,4 +1,5 @@
-# #there can be many combinations of topological sort
+# updated
+#there can be many combinations of topological sort
 #Topological Sort or KAHNS algorithm
 #Topological Sorting means sorting/linear ordering of all the vertices of graph in such a
 #  format that 
@@ -14,51 +15,59 @@
 #step4- Now after decreasing the indegrees by 1 check if some node's indegree has become 0
 #  or not,
 #if yes then append that element to the que and repeat the process till queue is empty.
-
 from collections import defaultdict
- 
-class graph():
-    def __init__(self):
-        self.graph=defaultdict(list)
-    def addedge(self,u,v):
-        self.graph[u].append(v)
-    
-    def kahns(self):
-        c=max(self.graph)+1
-        indegree=[0]*(c)
 
-        for i in range(c): #grabbing one node
-            for j in self.graph[i]: #grabbing its adjacent nodes
-                indegree[j]+=1 #increase the indegree of jth element by 1
-        
-        queue=[]
+class Graph:
+    def __init__(self, vertices):
+        self.graph = defaultdict(list)
+        self.vertices = vertices
+
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
+
+    def kahns(self):
+        c = self.vertices
+        indegree = [0] * c
+
+        # Calculate in-degrees of all vertices
+        for i in self.graph:
+            for j in self.graph[i]:
+                indegree[j] += 1
+
+        queue = []
+        # Add all vertices with in-degree 0 to the queue
         for i in range(c):
-            if indegree[i]==0:
+            if indegree[i] == 0:
                 queue.append(i)
 
-        cnt=0 #in order to check a cycle
-        result=[]
+        cnt = 0  # Counter for the number of vertices processed
+        result = []  # List to store the topological order
+
         while queue:
-            s=queue.pop(0)
+            s = queue.pop(0)
             result.append(s)
 
-            for i in self.graph(s): #checking the adjacent elements of the poped value only
-                indegree[i]-=1
-                if indegree[i]==0:
+            # Decrease the in-degree of adjacent vertices
+            for i in self.graph[s]:
+                indegree[i] -= 1
+                if indegree[i] == 0:
                     queue.append(i)
-            cnt+=1
-        
-        if cnt != c: #if this loop havent run the no. of times that is equal to the length of graph
-            print ("There exists a cycle in the graph")
+
+            cnt += 1
+
+        # Check for a cycle in the graph
+        if cnt != c:
+            print("There exists a cycle in the graph")
         else:
-            print(result)
+            print("Topological Sort:", result)
 
+
+# Example usage
 g = Graph(6)
-g.addEdge(5, 2);
-g.addEdge(5, 0);
-g.addEdge(4, 0);
-g.addEdge(4, 1);
-g.addEdge(2, 3);
-g.addEdge(3, 1);
+g.addEdge(5, 2)
+g.addEdge(5, 0)
+g.addEdge(4, 0)
+g.addEdge(4, 1)
+g.addEdge(2, 3)
+g.addEdge(3, 1)
 g.kahns()
-

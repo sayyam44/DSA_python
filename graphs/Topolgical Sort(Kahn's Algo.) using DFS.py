@@ -1,3 +1,4 @@
+#updated
 #we are traversing DFS in such a way that when we move from one edge to the other edge the ending adjacentvertex
 #of that edge should be the 1st one to go into the stack after that the 1st vertex will go into the stack
 #eg if we traverse through 1->2 , then 2 will go into stack before 1.
@@ -6,24 +7,38 @@
 #tc=n+e
 #sc=n for the visited array
 #asc=n for recursion call of dfs
-
 from collections import defaultdict
 
-class graph:
-    def __init__(self):
-        self.graph=defultdict(list)
-    def addedge(self,u,v):
+class Graph:
+    def __init__(self, vertices):
+        self.graph = defaultdict(list)
+        self.vertices = vertices  # Number of vertices in the graph
+
+    def addEdge(self, u, v):
         self.graph[u].append(v)
     
-    def dfs_recur(self,v,visited,stack):
-        visited[v]=True
+    def dfs_recur(self, v, visited, stack):
+        visited[v] = True
         for i in self.graph[v]:
-            if visited[i]==False: #means he have some unexplored adjacent nodes
-                self.dfs_recur(i,visited,stack)
-        stack.append(v) #append in stack if all the adjacent elements of the node has already been visited and the 2nd case is when there are no adjacent elements of that node.
+            if not visited[i]:  # If the adjacent node has not been visited
+                self.dfs_recur(i, visited, stack)
+        stack.append(v)  # Append to stack after visiting all adjacent nodes
+
     def dfs(self):
-        visited=[False]*(max(self.graph)+1)
-        stack=[]
-        for i in range(max(self.graph)+1):
-            if visited[i]==False:
-                self.dfs_recur(i,visited,stack)
+        visited = [False] * self.vertices
+        stack = []
+        for i in range(self.vertices):
+            if not visited[i]:
+                self.dfs_recur(i, visited, stack)
+        print("Topological Sort:", stack[::-1])  # Print stack in reverse order
+
+# Example usage
+g = Graph(6)
+g.addEdge(5, 2)
+g.addEdge(5, 0)
+g.addEdge(4, 0)
+g.addEdge(4, 1)
+g.addEdge(2, 3)
+g.addEdge(3, 1)
+
+g.dfs()
