@@ -1,80 +1,61 @@
-#DIKSTRA'S ALGORITHM- it helps us to find the shortest path between a source and every other node 
-class Graph():
+#THIS ALGORITHM WILL WORK FOR UNDIRECTED ACYCLIC GRAPH BUT 
+# DAG ALGO CAN WORK FOR DIRECTED ACYCLIC GRAPH ONLY.
+#Dijkistra algo cannot even take negative weights. 
 
-	def __init__(self, vertices):
-		self.V = vertices
-		self.graph = [[0 for column in range(vertices)]
-					for row in range(vertices)]
+#DIKSTRA'S ALGORITHM- it helps us to find the shortest path 
+# between a source and every other node 
 
-	def printSolution(self, dist):
-		print("Vertex \tDistance from Source")
-		for node in range(self.V):
-			print(node, "\t", dist[node])
+# Initialize Distances: Set the distance of all vertices to infinity (inf), except the source, which is set to 0.
+# Create Priority Queue: Use a min-heap (priority queue) to store (distance, vertex) pairs, starting with (0, source).
+# Process Queue: Extract the vertex with the smallest distance from the min-heap.
+# Visit Neighbors: For each neighbor of the current vertex, calculate the potential new distance through the current vertex.
+# Update Distance: If the new distance is smaller than the currently known distance, update it and push the neighbor into the min-heap.
+# Mark Processed: Mark the current vertex as processed once all its neighbors are evaluated.
+# Repeat: Continue processing vertices from the priority queue until it is empty.
+import heapq
+from collections import defaultdict
 
-	# A utility function to find the vertex with
-	# minimum distance value, from the set of vertices
-	# not yet included in shortest path tree
-	def minDistance(self, dist, sptSet): #this function is to reach to index that is currently at min dist
+class Graph:
+    def __init__(self, num):
+        self.graph = defaultdict(list)  # Adjacency list
+        self.V = num                   # Number of vertices
 
-		# Initialize minimum distance for next node
-		min = sys.maxsize
+    def addEdge(self, u, v, w):
+        self.graph[u].append((v, w))   # Edge from u to v with weight w
 
-		# Search not nearest vertex not in the
-		# shortest path tree
-		for u in range(self.V):
-			if dist[u] < min and sptSet[u] == False: #till this time dist[u]=0 is only for one case i.e. for index 1
-				min = dist[u] #min =0 for 1st case in copy 
-				min_index = u #min_index=1 for 1st case in copy
+    def dijkstra(self, src):
+        # Distance array initialized to infinity
+        dist = [float('inf')] * self.V
+        dist[src] = 0  # Distance to source is 0
 
-		return min_index
+        # Priority queue (min-heap) to store (distance, vertex)
+        min_heap = [(0, src)]  # (distance, vertex)
 
-	def dijkstra(self, src):
+        while min_heap:
+            current_dist, current_vertex = heapq.heappop(min_heap)
 
-		dist = [sys.maxsize] * self.V 
-		dist[src] = 0 #beacaue 1st dist will always be 0
-		sptSet = [False] * self.V #we are creating set because there may occur some duplicate values 
-                                  #that we dont want
+            # Process neighbors of the current vertex
+            for neighbor, weight in self.graph[current_vertex]:
+                distance = current_dist + weight
+                # If a shorter path is found
+                if distance < dist[neighbor]:
+                    dist[neighbor] = distance
+                    heapq.heappush(min_heap, (distance, neighbor))
 
-		for cout in range(self.V):
+        # Print the shortest distances
+        for i in range(self.V):
+            print(f"Vertex {i}: {dist[i]}" if dist[i] != float('inf') else f"Vertex {i}: Inf")
 
-			# Pick the minimum distance vertex from
-			# the set of vertices not yet processed.
-			# x is always equal to src in first iteration
-			x = self.minDistance(dist, sptSet) #it will return 1 in the example in copy
+# Example Usage
+g = Graph(6)
+g.addEdge(0, 1, 5)
+g.addEdge(0, 2, 3)
+g.addEdge(1, 3, 6)
+g.addEdge(1, 2, 2)
+g.addEdge(2, 4, 4)
+g.addEdge(2, 5, 2)
+g.addEdge(2, 3, 7)
+g.addEdge(3, 4, -1)  # Dijkstra's doesn't support negative weights properly
+g.addEdge(4, 5, -2)  # Negative weights can lead to incorrect results
 
-			# Put the minimum distance vertex in the
-			# shortest path tree
-			sptSet[x] = True #make index 1 == True for 1st time.
-
-			# Update dist value of the adjacent vertices
-			# of the picked vertex only if the current(already existing)
-			# distance(dist[y]) is greater than new distance(dist[x] + self.graph[x][y]) and
-			# the vertex in not in the shortest path tree
-
-			#here x is the current node now and now we are checking for its adjacent nodes only
-			for y in range(self.V):
-				#dist[y]= value in dist list for x's adjacent nodes
-				#dist[x]= value in dist list for x
-				#graph[x][y]= weight
-				if self.graph[x][y] > 0 and sptSet[y] == False and dist[y] > dist[x] + self.graph[x][y]:
-						dist[y] = dist[x] + self.graph[x][y]
-						#dist[y]=inf in 1st case
-						#dist[x]=0 in 1st case that we just calculated above
-						#self.graph[x][y]=prev val.
-		self.printSolution(dist)
-
-# Driver program
-g = Graph(9)
-g.graph = [
-    [0, 4, 0, 0, 0, 0, 0, 8, 0], # Edges from vertex 0 to vertices 1 and 7
-    [4, 0, 8, 0, 0, 0, 0, 11, 0], # Edges from vertex 1 to vertices 0, 2, and 7
-    [0, 8, 0, 7, 0, 4, 0, 0, 2], # Edges from vertex 2 to vertices 1, 3, 5, and 8
-    [0, 0, 7, 0, 9, 14, 0, 0, 0], # Edges from vertex 3 to vertices 2, 4, and 5
-    [0, 0, 0, 9, 0, 10, 0, 0, 0], # Edges from vertex 4 to vertices 3 and 5
-    [0, 0, 4, 14, 10, 0, 2, 0, 0], # Edges from vertex 5 to vertices 2, 3, 4, and 6
-    [0, 0, 0, 0, 0, 2, 0, 1, 6], # Edges from vertex 6 to vertices 5, 7, and 8
-    [8, 11, 0, 0, 0, 0, 1, 0, 7], # Edges from vertex 7 to vertices 0, 1, 6, and 8
-    [0, 0, 2, 0, 0, 0, 6, 7, 0] # Edges from vertex 8 to vertices 2, 6, and 7
-]
-
-g.dijkstra(0);
+g.dijkstra(0)

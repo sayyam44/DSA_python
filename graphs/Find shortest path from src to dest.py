@@ -14,8 +14,12 @@ class Graph:
         path = self.get_path(parent, dest)
         print(f"{dest}\t{dist[dest]}\t\t\t{path}")
 
+    # To reconstruct the actual path from the source to the 
+    # destination, we need to start at the destination 
+    # (Vertex 2 in this case) and trace back through the parent 
+    # array until we reach the source(whos parent is -1)
     def get_path(self, parent, j):
-        if parent[j] == -1:  # Base case: source node
+        if parent[j] == -1:  # this means we have reached the souce node
             return str(j)
         return self.get_path(parent, parent[j]) + " -> " + str(j)
 
