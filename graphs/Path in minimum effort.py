@@ -1,3 +1,5 @@
+# updated
+# Time Complexity: 𝑂 ( 𝑀 ⋅ 𝑁 ⋅ log ⁡ ( 𝑀 ⋅ 𝑁 ) ) O(M⋅N⋅log(M⋅N))
 # https://leetcode.com/problems/path-with-minimum-effort/description/
 import heapq
 class Solution:
