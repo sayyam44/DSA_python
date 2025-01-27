@@ -14,7 +14,9 @@
 
 import heapq
 from typing import List
-
+# unlike the path with min effort ques we don't need a dummy matrix
+# here because here once a cell is visited, there’s no need to revisit 
+# it with a lower time (as water levels are fixed and always rising).
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         N = len(grid)
