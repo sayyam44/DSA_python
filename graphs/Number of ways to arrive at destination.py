@@ -1,34 +1,36 @@
 # https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/
-import heapq
-def count_paths(n, edges):
-	graph = [[] for _ in range(n+1)]
+# https://www.youtube.com/watch?v=_-0mx0SmYxA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=40
+# https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/
 
-	for edge in edges:
-		graph[edge[0]].append([edge[1], edge[2]])
-		graph[edge[1]].append([edge[0], edge[2]])
+import heapq,defaultdict
+class Solution:
+    def countPaths(self, n: int, roads: List[List[int]]) -> int:
+        graph_new = defaultdict(list)  # from -> (to, weight)
+        for frm, to, weight in roads:
+            graph_new[frm].append([to, weight])
+            graph_new[to].append([frm, weight])
 
-	dis = [float("inf")] * n
-	path = [0] * n
-	minH = [(0, 0)]
-	dis[0] = 0
-	path[0] = 1
-	while minH:
-		curr_dist,curr_node=heapq.heappop(minH)
-		for nei in graph[curr_node]:
-			nei_node,nei_dist=nei
-			if dis[nei_node]>curr_dist+nei_dist:
-				dis[nei_node]=curr_dist+nei_dist
-				path[nei_node]=path[curr_node]
-				heapq.heappush(minH,(dis[nei_node],nei_node))
-			elif dis[nei_node]==curr_dist+nei_dist:
-				path[nei_node]+=path[curr_node]
+        visited = [float('inf')] * n
+        visited[0] = 0  # Start node has a distance of 0
+        minH = [(0, 0)]  # Min-heap: (distance, node)
+        ways = [0] * n
+        ways[0] = 1  # There is one way to reach the start node
 
-	return path[n-1]
+        while minH:
+            dist, node = heapq.heappop(minH)
 
-n = 7
-edges = [
-	[0, 6, 7], [0, 1, 2], [1, 2, 3], [1, 3, 3], [6, 3, 3],
-	[3, 5, 1], [6, 5, 1], [2, 5, 1], [0, 4, 5], [4, 6, 2]
-]
-num_paths = count_paths(n, edges)
-print("Number of paths from 0 to {}: {}".format(n-1, num_paths))
+            # Traverse all neighbors of the current node
+            for neighbor, weight in graph_new[node]:
+                new_dist = dist + weight
+
+                # If a shorter path to the neighbor is found
+                if visited[neighbor] > new_dist:
+                    visited[neighbor] = new_dist
+                    ways[neighbor] = ways[node]  # Reset the number of ways to reach this neighbor
+                    heapq.heappush(minH, (new_dist, neighbor))
+
+                # If an equal distance path to the neighbor is found
+                elif visited[neighbor] == new_dist:
+                    ways[neighbor] += ways[node]  # Increment the number of ways to reach this neighbor
+
+        return ways[n - 1] % (10**9 + 7)
