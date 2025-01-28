@@ -1,5 +1,5 @@
 # https://www.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=implementing-floyd-warshall
-
+# updated
 #Floyd Warshall Algorithm helps to find the shortest distance between all the pairs of nodes and not just 
 #from a 1 source unlike Dijkistra's and Bellman Ford algorithm does.
 
@@ -7,37 +7,42 @@
 #negative at the end of the loop then we say it have a negative cycle.
 
 #tc=n3
-def floydWarshall(matrix):
-    n = len(matrix)
-    inf = float('inf')
-    
-    # Step 1: Initialize the adjacency matrix
-    for i in range(n):
-        for j in range(n):
-            if i != j and matrix[i][j] == -1:
-                matrix[i][j] = inf
-        matrix[i][i] = 0  # Distance to self is zero
-    
-    # Step 2: Apply the Floyd-Warshall algorithm
-    for via in range(n):
-        for i in range(n):
-            for j in range(n):
-                if matrix[i][via] < inf and matrix[via][j] < inf:  # Check for valid intermediate path
-                    matrix[i][j] = min(matrix[i][j], matrix[i][via] + matrix[via][j])
-    
-    # Step 3: Final update to replace inf with -1 for no path
-    for i in range(n):
-        for j in range(n):
-            if matrix[i][j] == inf:
-                matrix[i][j] = -1
 
-# Example usage:
-matrix = [
-    [0, 3, -1, 7],
-    [-1, 0, 2, -1],
-    [-1, -1, 0, 1],
-    [6, -1, -1, 0]
+def floyd_warshall(graph):
+    num_vertices = len(graph)
+    
+    # Initialize the distance matrix
+    dist = [[float('inf')] * num_vertices for _ in range(num_vertices)]
+    
+    # Set diagonal to 0 and copy initial graph values
+    for i in range(num_vertices):
+        for j in range(num_vertices):
+            if i == j:
+                dist[i][j] = 0
+            elif graph[i][j] != float('inf'):
+                dist[i][j] = graph[i][j]
+
+    # Floyd-Warshall algorithm
+    for k in range(num_vertices):
+        for i in range(num_vertices):
+            for j in range(num_vertices):
+                if dist[i][k] != float('inf') and dist[k][j] != float('inf'):
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
+    return dist
+
+# Example graph represented as an adjacency matrix
+graph = [
+    [0, 3, float('inf'), 7],
+    [8, 0, 2, float('inf')],
+    [5, float('inf'), 0, 1],
+    [2, float('inf'), float('inf'), 0]
 ]
 
-floydWarshall(matrix)
-print(matrix)
+# Run Floyd-Warshall algorithm
+shortest_paths = floyd_warshall(graph)
+
+# Print result
+print("Shortest distance matrix:")
+for row in shortest_paths:
+    print(row)
