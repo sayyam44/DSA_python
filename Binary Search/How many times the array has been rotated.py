@@ -3,33 +3,38 @@
 # Almost same as find min in rotated sorted array
 #To check how many times the array ha been rotated we need to find 
 #the index of the min element in that array
+from typing import List
 
-class Solution(object):
-    def findMin(self, nums):
-        low=0
-        high=len(nums)-1
-        val=-1
-        idx=-1
+class Solution:
+    def findMinIndex(self, nums: List[int]) -> int:
+        l, h = 0, len(nums) - 1
+        mini = float("inf")
+        min_ind = -1
 
-        while low<=high:
-            mid=(low+high)//2
-            #this case is when we get some search space that is sorted 
-            #in that case the arr[low] will be the lowest value
-            if (nums[low]<nums[high]):
-                if nums[low]<val:
-                    idx=low
-                    val=nums[low]
-                break
+        while l <= h:
+            mid = (l + h) // 2
 
-            elif nums[low]<=nums[mid]: #if left side is sorted
-                if nums[low]<val:
-                    idx=low
-                    val=nums[low]
-                low=mid+1
-            else:
-                if nums[mid]<val:
-                    idx=mid
-                    val=nums[mid]
-                high=mid-1
-                
-        return idx
+            # If the array is already sorted, return the first element's index
+            if nums[l] <= nums[h]:
+                if nums[l] < mini:
+                    mini = nums[l]
+                    min_ind = l
+                return min_ind  
+
+            # Check if mid is the minimum element
+            if nums[mid] < mini:
+                mini = nums[mid]
+                min_ind = mid
+
+            # If left half is sorted, the pivot is on the right
+            if nums[l] <= nums[mid]:  
+                l = mid + 1
+            else:  
+                h = mid - 1
+
+        return min_ind  # Returns index of the minimum element
+
+# Example Usage
+sol = Solution()
+arr = [5, 1, 2, 3, 4]
+print(sol.findMinIndex(arr))  # Output: 1 (index of 1)
