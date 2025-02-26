@@ -20,24 +20,20 @@ class Solution(object):
 
 
 #optimized solution
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        l, r = 0, 0
+        cnt = 0
+        dc = {}
+        for r in range(len(s)):
+            dc[s[r]] = dc.get(s[r], 0) + 1  # Increment character count
 
-# Go opposite 
-# With every character there is a substring that ends with that char
-# Begin with a=-1,b=-1,c=-1 , these all represent the last seen index of a,b,c
-# move the i pointer update the values of above variables
-class Solution(object):
-    def numberOfSubstrings(self, s):
-        last_seen={i:-1 for i in range(3)} #last seen indices of a,b,c
-        cnt=0
-        for i in range(len(s)):
-            last_seen[ord(s[i])-ord('a')] = i #updating the last seen of ith char
-            if (last_seen[0]!=-1 and last_seen[1]!=-1 and last_seen[2]!=-1): 
-                #this means we have all the three chars in this substring ending with 
-                #jth index value 
-                #now i will find the min of all the 3 occurances till now 
-                #that means the elements to the left of the min occurance index
-                #will be also parts of the subarray having all 3 chars
-                cnt+=(1+min(last_seen[0],last_seen[1],last_seen[2]))
+            while len(dc) == 3:  # Valid substring condition
+                dc[s[l]] -= 1
+                if dc[s[l]] == 0:
+                    del dc[s[l]]  # Remove key if count is zero
+                l += 1
+            cnt += l  # Count valid substrings
         return cnt
 
  
