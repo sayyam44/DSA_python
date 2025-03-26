@@ -1,3 +1,4 @@
+# updated
 # https://leetcode.com/problems/binary-subarrays-with-sum/
 
 #brute force approach
