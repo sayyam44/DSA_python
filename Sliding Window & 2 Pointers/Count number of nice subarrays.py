@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/count-number-of-nice-subarrays/
 
 # Given an array of integers nums and an integer k. A continuous subarray 
