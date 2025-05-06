@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
 
 class Solution:

@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
 
 #Brute force-n2
