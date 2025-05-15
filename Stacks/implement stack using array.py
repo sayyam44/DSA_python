@@ -1,3 +1,4 @@
+# updated new
 from sys import maxsize
  
 # Function to create a stack. It initializes size of stack as 0

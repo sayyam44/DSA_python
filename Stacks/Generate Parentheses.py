@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/generate-parentheses/
 #using recursion method
 # Input: n = 3

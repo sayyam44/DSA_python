@@ -1,4 +1,4 @@
-# Updated
+# Updated new
 # https://leetcode.com/problems/daily-temperatures/
 #tc=n*n,sc=n
 # Input: temperatures = [73,74,75,71,69,72,76,73]

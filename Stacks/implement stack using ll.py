@@ -1,3 +1,5 @@
+# updated new
+
 class StackNode:
  
     # Constructor to initialize a node

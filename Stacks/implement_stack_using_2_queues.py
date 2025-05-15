@@ -1,8 +1,7 @@
+# updated new
 # https://www.youtube.com/watch?v=jDZQKzEtbYQ&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=75
 
-
 from collections import deque
-
 
 class Stack:
 
