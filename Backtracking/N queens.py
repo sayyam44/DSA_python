@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/n-queens/
-
+# updated
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         col=set()
