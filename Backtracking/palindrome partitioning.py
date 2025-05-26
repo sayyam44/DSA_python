@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/palindrome-partitioning/
 
 #TC=n(palindrome checking)*2^n(either we take an element or not)

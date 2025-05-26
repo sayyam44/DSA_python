@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/permutations/
 # TC= n! * n2
 # SC=n!*
