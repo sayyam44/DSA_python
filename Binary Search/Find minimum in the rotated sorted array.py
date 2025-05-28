@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
-# updated
+# updated new
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         l=0
