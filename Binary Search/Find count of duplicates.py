@@ -1,3 +1,4 @@
+# updated new
 # Same as find 1st and last occurance of an elemnt just subtract the second occurance - first occurane
 # https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=number-of-occurrence
 class Solution(object):

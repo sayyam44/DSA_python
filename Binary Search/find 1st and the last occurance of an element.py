@@ -1,3 +1,4 @@
+# updated new
 # https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 #brute force method
 # def searchRange(nums, target):
