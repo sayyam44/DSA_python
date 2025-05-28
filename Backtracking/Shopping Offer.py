@@ -1,4 +1,4 @@
-# updated
+# updated new
 # https://leetcode.com/problems/shopping-offers/description/
 class Solution:
     def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
