@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/find-peak-element/description/
+# updated new
 
 #step1- write code for the base cases (i.e for 1st and the last element)
 #step2- point low at 1 and high at len-1
