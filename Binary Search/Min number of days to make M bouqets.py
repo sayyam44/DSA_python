@@ -1,3 +1,4 @@
+# updated new
 # /https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/
 # Max of the array will surely give us the answer as till that time all the flowers will be bloomed
 #The min of the array will atleat bloom 1 flower so range will be(min(arr),max(arr))
