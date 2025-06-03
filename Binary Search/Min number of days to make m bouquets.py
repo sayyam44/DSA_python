@@ -1,3 +1,4 @@
+# updated new
 #For these type of questions to solve with binary search find the minimum 
 # and maximum of the range of possible ouput values
 
