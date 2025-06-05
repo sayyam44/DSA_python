@@ -1,5 +1,5 @@
+# updated new
 #bst iterator means to implement next() and hasnext() function for bst .
-
 #sc=h , as we are just storing left left left elements that is equaivalent to height 
 #tc=1, pushing n elements on n calls i.e. = n/n=1
 

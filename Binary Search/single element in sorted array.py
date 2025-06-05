@@ -1,3 +1,4 @@
+# updated new
 # https://leetcode.com/problems/single-element-in-a-sorted-array/description/
 
 #brute force approach 
