@@ -1,3 +1,4 @@
+# updated new
 #A Binary tree is said to be balanced if for all the nodes the 
 # difference bw the height of left subtree and the right subtree is <=1
 # https://leetcode.com/problems/balanced-binary-tree/

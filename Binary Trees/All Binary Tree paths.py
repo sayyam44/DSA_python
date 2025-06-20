@@ -1,4 +1,4 @@
-# #updated
+# updated new
 # https://leetcode.com/problems/binary-tree-paths/
 #1st method
 def binarytreepaths(self,root):
