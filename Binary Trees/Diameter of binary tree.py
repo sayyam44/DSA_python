@@ -1,3 +1,4 @@
+# updated new
 #Max_Diameter of a binary tree is the maximum distance bw any 2 nodes in 
 #a given tree
 #Diameter of a node is the sum of left height and the right height
