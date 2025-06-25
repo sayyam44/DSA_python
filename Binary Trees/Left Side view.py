@@ -1,4 +1,4 @@
-#updated
+# updated new
 #tc=n,sc=H(height of tree)
 class Solution:
     def leftSideView(self, root: Optional[TreeNode]) -> List[int]:
