@@ -1,4 +1,4 @@
-#Updated
+# updated new
 # approach 1 - Hashing , create an empty 
 # hashmap of size n with all zeros, now trasverse through the arr and increase the value 
 # the value in hashmap by i at the value ith index
