@@ -1,4 +1,4 @@
-# updated - 1
+# updated new
 # Input:
 # K = 3, N = 5
 # Arr[] = {3, 9, 12, 16, 20}
