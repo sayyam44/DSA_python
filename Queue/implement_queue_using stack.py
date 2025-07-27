@@ -1,4 +1,4 @@
-
+# updated new
 class queue:
     def __init__(self):
         self.s1=[]

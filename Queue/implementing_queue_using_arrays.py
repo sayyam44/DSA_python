@@ -1,3 +1,4 @@
+# updated new
 front=rear=0
 def createqueue():
     queue=[]
