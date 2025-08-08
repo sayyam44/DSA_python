@@ -1,3 +1,4 @@
+# updated new
 #TC=O(n)
 #sc=O(n)--> Internal memory--> That is for the stack space that all the n function calls were waiting in the stack till the base case returns 
 
