@@ -1,4 +1,4 @@
-# updated
+# updated new
 #1st approach->Sort the 1st linked list in ascending order 
 # and the 2nd linked list in descending order using merge 
 # sort technique
