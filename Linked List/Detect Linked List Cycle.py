@@ -1,3 +1,4 @@
+# updated new
 #https://leetcode.com/problems/find-the-duplicate-number/
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
