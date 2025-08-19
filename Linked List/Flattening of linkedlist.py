@@ -1,4 +1,4 @@
-# Updated
+# updated new
 # https://www.geeksforgeeks.org/flattening-a-linked-list/
 #use first while loop to move through root values and the use another while 
 #loop to move through the bottom of the linked list
