@@ -1,4 +1,5 @@
-# updated-1
+# Updated new
+
 # https://leetcode.com/problems/merge-k-sorted-lists/
 class Solution:
     def mergeKLists(self, lists):

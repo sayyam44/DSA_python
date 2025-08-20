@@ -1,4 +1,5 @@
-# updated
+# Updated new
+
 class Node: 
 	def __init__(self, data): 
 		self.data = data # Assign data 

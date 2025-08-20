@@ -1,3 +1,4 @@
+# Updated new
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         #finding middle of ll
