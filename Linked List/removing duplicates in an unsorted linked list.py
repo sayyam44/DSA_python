@@ -1,3 +1,4 @@
+# Updated new
 from typing import Optional
 
 class ListNode:
