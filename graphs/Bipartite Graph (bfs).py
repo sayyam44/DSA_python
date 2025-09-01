@@ -1,4 +1,4 @@
-# updated
+# Updated new
 #A graph that can be colored using 2 different colors such that no 2 adjacent nodes have same color is called bipartite graph.
 from collections import defaultdict, deque
 
