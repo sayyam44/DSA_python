@@ -1,3 +1,4 @@
+# Updated new
 # https://leetcode.com/problems/min-cost-to-connect-all-points/
 # tc=(n2)logn
 class Solution:

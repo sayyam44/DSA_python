@@ -1,3 +1,4 @@
+# Updated new
 # https://www.geeksforgeeks.org/problems/minimum-multiplications-to-reach-end/1
 import sys
 from collections import deque
