@@ -1,4 +1,4 @@
-#updated
+# Updated new
 #we are traversing DFS in such a way that when we move from one edge to the other edge the ending adjacentvertex
 #of that edge should be the 1st one to go into the stack after that the 1st vertex will go into the stack
 #eg if we traverse through 1->2 , then 2 will go into stack before 1.

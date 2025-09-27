@@ -1,3 +1,4 @@
+# Updated new
 # https://leetcode.com/problems/word-search/description/
 #This method is without using any extra scpace of visited set
 #TC=n*m*dfs 
