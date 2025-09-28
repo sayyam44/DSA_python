@@ -1,3 +1,4 @@
+# Updated new
 # https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1
 
 #sort the array on the basis of 1 unit weight
