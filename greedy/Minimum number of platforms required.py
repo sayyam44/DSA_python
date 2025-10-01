@@ -1,3 +1,4 @@
+# Updated new
 # https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
 
 #Brute Force Approach (tc=n2)
