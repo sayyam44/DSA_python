@@ -1,3 +1,4 @@
+# Updated new
 # https://leetcode.com/problems/k-closest-points-to-origin/description/
 import heapq
 class Solution:
