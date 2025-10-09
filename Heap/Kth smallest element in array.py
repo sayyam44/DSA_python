@@ -1,3 +1,4 @@
+# Updated new
 #method-1
 import heapq
 class Solution:

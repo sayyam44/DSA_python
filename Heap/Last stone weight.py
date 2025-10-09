@@ -1,4 +1,4 @@
-# updated
+# Updated new
 # https://leetcode.com/problems/last-stone-weight/
 #since we cannot directly implement max heaps in python so we 
 # will use min heap for that case by multiplying 
