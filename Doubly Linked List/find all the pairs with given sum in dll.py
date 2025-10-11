@@ -1,4 +1,4 @@
-# updated -1 
+# Updated new
 # tc=0(n)
 from requests import head
 class ListNode:

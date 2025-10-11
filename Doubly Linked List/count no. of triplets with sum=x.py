@@ -1,3 +1,4 @@
+# Updated new
 # Traverse the doubly linked list from left to right. For each current node during the traversal, 
 # initialize two pointers first = pointer to the node next to the current node and last = pointer to the 
 # last node of the list. Now, count pairs in the list from first to last pointer that sum up to value 
