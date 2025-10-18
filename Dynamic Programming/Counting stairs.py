@@ -1,4 +1,4 @@
-# updated new
+# updated new 1
 # https://leetcode.com/problems/climbing-stairs/description/
 #updated
 #same as fibonacci numbers
