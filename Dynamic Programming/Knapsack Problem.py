@@ -1,3 +1,4 @@
+# updated new 1
 # https://www.naukri.com/code360/problems/0-1-knapsack_920542
 # https://www.youtube.com/watch?v=GqOmJHQZivw
 # A thief wants to rob a store. He is carrying a bag of capacity W. The store has ‘n’ 

@@ -1,3 +1,4 @@
+# updated new 1
 # https://www.codingninjas.com/codestudio/problem-details/frog-jump_3621012
 #MEMOIZATION METHOD (tc=n,sc=n+n)
 #updated
