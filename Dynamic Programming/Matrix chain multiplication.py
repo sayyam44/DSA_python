@@ -1,3 +1,4 @@
+# updated new 1
 # https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1
 
 #MEMOIZATION (tc=n3, SC=n2+N(auxiliary stack space))
